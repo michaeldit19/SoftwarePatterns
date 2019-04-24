@@ -4,7 +4,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
@@ -37,7 +37,7 @@ public class LoginController extends HttpServlet {
 
 	
 	@RequestMapping(value = "/loginProcess", method = RequestMethod.POST)
-	public ModelAndView loginProcess(HttpServletRequest request, HttpServletResponse response,
+	public ModelAndView loginProcess(HttpServletRequest request, HttpServletResponse response, HttpSession session,
 			@ModelAttribute("login") Login login, BindingResult result) {
 		
 		
@@ -47,6 +47,7 @@ public class LoginController extends HttpServlet {
 
 		if (null != customers) {
 			mav = new ModelAndView("welcome");
+			addCustomerToSession(customers, session);
 			
 		} else if (login.getUsername().equals("admin")&&login.getPassword().equals("root")) {
 			mav = new ModelAndView("admin_welcome");
@@ -57,6 +58,11 @@ public class LoginController extends HttpServlet {
 			mav.addObject("message", "Username or Password is invalid....");
 		}
 		return mav;
+	}
+	
+	private void addCustomerToSession(Customers customers, HttpSession session) {
+		session.setAttribute("customers", customers);
+		session.setAttribute("id", customers.getId());
 	}
 		
 	}

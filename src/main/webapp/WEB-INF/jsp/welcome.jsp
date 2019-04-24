@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<h1>Welcome User</h1>
+<h1>Welcome ${sessionScope.customers.firstname}</h1>
 
 <a href="/">Logout</a>
 

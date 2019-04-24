@@ -48,6 +48,11 @@
 						required="" /></td>
 			</tr>
 			<tr>
+				<td></td>
+				<td><form:button id="register" name="register">Register</form:button>
+				</td>
+			</tr>
+			<tr>
 
 			</tr>
 			<tr></tr>

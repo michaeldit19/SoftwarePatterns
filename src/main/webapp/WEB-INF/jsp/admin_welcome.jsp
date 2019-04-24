@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,9 +8,17 @@
 </head>
 <body>
 
-<h1>Welcome Admin</h1>
+	<h1>Welcome Admin</h1>
+	
+	<tr>
+		<td>${message2 }</td>
+	</tr>
 
-<a href="/">Logout</a>
+	<p>
+		<a href="add_item" data-toggle="tooltip" title="Add Items">Create Items</a>
+	</p>
+
+	<a href="/">Logout</a>
 
 </body>
 </html>

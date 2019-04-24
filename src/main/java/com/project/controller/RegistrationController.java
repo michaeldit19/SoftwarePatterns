@@ -2,6 +2,7 @@ package com.project.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -30,10 +31,17 @@ public class RegistrationController {
 	}
 	
 	@PostMapping("/registerProcess")
-	public ModelAndView addUser(HttpServletRequest request, @ModelAttribute("customer") Customers customers) {
+	public ModelAndView addUser(HttpServletRequest request, @ModelAttribute("customer") Customers customers,
+			HttpSession session) {
 		ModelAndView mav = new ModelAndView("welcome");
+		addCustomerToSession(customers, session);
 		customerService.register(customers);
 		return mav;
+	}
+	
+	private void addCustomerToSession(Customers customers, HttpSession session) {
+		session.setAttribute("customers", customers);
+		session.setAttribute("id", customers.getId());
 	}
 
 

@@ -20,47 +20,48 @@ public class Item {
 	@Column
 	private String manufacturer;
 	
-	
-	public Item(String itemName, int price, String manufacturer) {
+	public Item() {
+		
+	}
+
+	public Item(int id, String itemName, int price, String manufacturer) {
 		super();
+		this.id = id;
 		this.itemName = itemName;
 		this.price = price;
 		this.manufacturer = manufacturer;
 	}
-
 
 	public String getItemName() {
 		return itemName;
 	}
 
-
 	public void setItemName(String itemName) {
 		this.itemName = itemName;
 	}
-
 
 	public int getPrice() {
 		return price;
 	}
 
-
 	public void setPrice(int price) {
 		this.price = price;
 	}
-
 
 	public String getManufacturer() {
 		return manufacturer;
 	}
 
-
 	public void setManufacturer(String manufacturer) {
 		this.manufacturer = manufacturer;
 	}
-	
-	
-	
-	
-	
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 }

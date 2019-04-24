@@ -25,5 +25,11 @@ public class ApplicationController {
 	    request.setAttribute("mode", "MODE_REGISTER");
 		return "register";
 	}
+	
+	@RequestMapping("/add_item")
+	public String add_item(HttpServletRequest request) {
+		request.setAttribute("mode", "MODE_ITEM");
+		return "add_item";
+	}
 
 }
