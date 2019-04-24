@@ -8,6 +8,9 @@
 <title>Online Store</title>
 </head>
 <body>
+
+<h1>Online Store</h1>
+
         <table align="center">
             <tr>
                 <td><a href="login">Login</a>

@@ -27,6 +27,7 @@ public class Customers {
 	private String billAddress;
 	@Column
 	private String email;
+
 	
 	public Customers() {
 		
@@ -99,5 +100,8 @@ public class Customers {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	
+	
 
 }

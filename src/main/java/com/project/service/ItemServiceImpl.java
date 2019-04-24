@@ -27,12 +27,20 @@ public class ItemServiceImpl implements ItemService {
 	@Autowired
 	DataSource datasource;
 	
+	public Item findById(int id) {
+		return itemRepository.findById(id);
+	}
+	
 	public Iterable<Item> findAllItems() {
 		return itemRepository.findAll();
 	}
 	
 	public void create(Item item) {
 		item = itemRepository.save(item);
+	}
+	
+	public Item update(Item item) {
+		return itemRepository.save(item);
 	}
 	
 	class UserMapper implements RowMapper<Item> {
@@ -43,11 +51,14 @@ public class ItemServiceImpl implements ItemService {
 			item.setItemName(rs.getString("itemName"));
 			item.setPrice(rs.getInt("price"));
 		    item.setManufacturer(rs.getString("manufacturer"));
+		    item.setStockNumber(rs.getInt("stockNumber"));
 
 			return item;
 		}
 
 	}
+	
+	
 	
 	
 

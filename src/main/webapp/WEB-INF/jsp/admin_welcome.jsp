@@ -15,7 +15,10 @@
 	</tr>
 
 	<p>
-		<a href="add_item" data-toggle="tooltip" title="Add Items">Create Items</a>
+		<a href="add_item" data-toggle="tooltip" title="Create Items">Create Items</a>
+	</p>
+	<p>
+		<a href="view_items" data-toggle="tooltip" title="View Items">View Items</a>
 	</p>
 
 	<a href="/">Logout</a>

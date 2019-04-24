@@ -29,6 +29,11 @@
 						id="manufacturer" required="" /></td>
 			</tr>
 			<tr>
+				<td><form:label path="stockNumber">Stock Number</form:label></td>
+				<td><form:input path="stockNumber" name="stockNumber"
+						id="stockNumber" required="" /></td>
+			</tr>
+			<tr>
 				<td></td>
 				<td><form:button id="createItem" name="createItem">Post Item</form:button>
 				</td>
