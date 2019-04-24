@@ -38,6 +38,12 @@ public class ApplicationController {
 		return "register";
 	}
 	
+	@RequestMapping("/paymentDetails")
+	public String paymentDetails(HttpServletRequest request) {
+	    request.setAttribute("mode", "MODE_PAYDETAILS");
+		return "paymentDetails";
+	}
+	
 	@RequestMapping("/add_item")
 	public String add_item(HttpServletRequest request) {
 		request.setAttribute("mode", "MODE_ITEM");

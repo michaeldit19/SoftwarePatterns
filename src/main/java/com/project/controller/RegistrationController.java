@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.project.model.Card;
 import com.project.model.Customers;
+import com.project.service.CardService;
 import com.project.service.CustomerService;
 
 
@@ -22,6 +24,9 @@ public class RegistrationController {
 	
 	@Autowired
 	CustomerService customerService;
+	
+	@Autowired
+	CardService cardService;
 	
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public ModelAndView showRegister(HttpServletRequest request, HttpServletResponse response) {
@@ -33,9 +38,25 @@ public class RegistrationController {
 	@PostMapping("/registerProcess")
 	public ModelAndView addUser(HttpServletRequest request, @ModelAttribute("customer") Customers customers,
 			HttpSession session) {
-		ModelAndView mav = new ModelAndView("welcome");
+		ModelAndView mav = new ModelAndView("paymentDetails");
 		addCustomerToSession(customers, session);
 		customerService.register(customers);
+		return mav;
+	}
+	
+
+	@RequestMapping(value = "/paymentDetails", method = RequestMethod.GET)
+	public ModelAndView addCard(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav = new ModelAndView("paymnetDetails");
+		mav.addObject("card", new Card());
+		return mav;
+	}
+	
+	@PostMapping("/cardProcess")
+	public ModelAndView addCard(HttpServletRequest request, @ModelAttribute("card") Card card,
+			HttpSession session){
+		ModelAndView mav = new ModelAndView("welcome");
+		cardService.createCard(card);
 		return mav;
 	}
 	
